@@ -12,7 +12,7 @@ on:
         "src/ContosoTraders.Api.Products/**",
         "src/ContosoTraders.Ui.Website/**",
       ]
-
+ 
 env:
   # You can specify any location for `SUB_DEPLOYMENT_REGION`. It's the region where the deployment
   # metadata will be stored, and not where the resource groups will be deployed.
@@ -87,4 +87,4 @@ jobs:
         uses: azure/CLI@v1
         with:
           failOnStderr: false
-          inlineScript: az cdn endpoint purge --no-wait --content-paths '/*' -n '${{ env.PRODUCTS_CDN_ENDPOINT_NAME }}${{ secrets.ENVIRONMENT }}' -g '${{ env.RESOURCE_GROUP_NAME }}' --profile-name '${{ env.CDN_PROFILE_NAME }}${{ secrets.ENVIRONMENT }}'
+          inlineScript: az cdn endpoint purge --no-wait --content-paths '/*' -n '${{ env.PRODUCTS_CDN_ENDPOINT_NAME }}${{ secrets.ENVIRONMENT }}' -g 'contosotraders-1520214' --profile-name '${{ env.CDN_PROFILE_NAME }}${{ secrets.ENVIRONMENT }}'
